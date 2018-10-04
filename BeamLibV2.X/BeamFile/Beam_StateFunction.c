@@ -21,6 +21,7 @@ volatile uint8_t Beam_Data_BitSend;  /* Gia tri bien dang duoc thu-phat */
 
 volatile uint8_t Beam_LedSendByte;
 volatile uint8_t Beam_LedReadByte;
+volatile uint8_t Beam_LedState;
 
 #ifdef BeamRX_Module
 volatile uint16_t Beam_TimeOut = 0;         /* Tinh thoi gian, wait SessionStartBit bao nhieu lan */
@@ -243,21 +244,19 @@ void Beam_CheckBit_Update()
 
 void Beam_DataToLed_Send() /* Chuyen du lieu sang trang thai Led */
 {
-    LED0 = Beam_LedSendByte & 1;
-    LED1 = (Beam_LedSendByte >> 1) & 1;
-    LED2 = (Beam_LedSendByte >> 2) & 1;
-    LED3 = (Beam_LedSendByte >> 3) & 1;
+    int i;
+    for (i=0; i<4; i++)
+    {
+        LedOutputData = ( Beam_LedSendByte >> (3-i)) & 1;
+        LedSclock = 0;
+        LedSclock = 1;       
+    }
+    LedSLAT= 0;
+    LedSLAT = 1;
 
-#ifdef Beam_6Chanel
-    LED4 = (Beam_LedSendByte >> 4) & 1;
-    LED5 = (Beam_LedSendByte >> 5) & 1;
-#endif
-#ifdef Beam_8Chanel
-    LED6 = (Beam_LedSendByte >> 6) & 1;
-    LED7 = (Beam_LedSendByte >> 7) & 1;
-#endif
 }
 
+#ifdef BeamRX_Module
 void Beam_LedToData_Read()
 { /* Luu du lieu Led thu duoc vao Beam_LedReadByte */
     Beam_LedReadByte = LED0 + (LED1 << 1) + (LED2 << 2) + (LED3 << 3);
@@ -267,3 +266,4 @@ void Beam_LedToData_Read()
     Beam_LedReadByte += ((LED4 << 4) + (LED5 << 5) + (LED6 << 6) + (LED7 << 7));
 #endif
 }
+#endif

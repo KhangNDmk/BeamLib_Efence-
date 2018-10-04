@@ -16,10 +16,8 @@ void Beam_Param_DefaultInit(void)
 void Beam_LedChanel_Init()
 {
 #ifdef BeamTX_Module
-    LED0Set = LedTX;
-    LED1Set = LedTX;
-    LED2Set = LedTX;
-    LED3Set = LedTX;
+
+    
 #endif
 #ifdef BeamRX_Module
     LED0Set = LedRX;

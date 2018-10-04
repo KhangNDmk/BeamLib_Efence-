@@ -19,15 +19,12 @@
 /* Khoi tao IO, LED0 -> LED7  == Bit 0-> Bit7 */
 /* Khoi tao Module TX*/
 #ifdef BeamTX_Module
-#define LED0Set TRISBbits.TRISB6
-#define LED1Set TRISBbits.TRISB7
-#define LED2Set TRISBbits.TRISB8
-#define LED3Set TRISBbits.TRISB9
+#define LedSLAT LATAbits.LATA1
+#define LedOutputData LATAbits.LATA2
+#define LedSclock LATAbits.LATA3
+#define LedOutputEnable  LATBbits.LATB4
+#define LedOutputReset LATAbits.LATA4
 
-#define LED0 LATBbits.LATB6
-#define LED1 LATBbits.LATB7
-#define LED2 LATBbits.LATB8
-#define LED3 LATBbits.LATB9
 #endif
 
 /* Khoi tao Module RX*/

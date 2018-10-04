@@ -69,11 +69,11 @@ xc16-ld 1.35 (A)
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x11e           0x1ad  (429)
-.text                        0x31e               0x410           0x618  (1560)
-.dinit                       0x72e                0x2c            0x42  (66)
-.text                        0x75a                0x5c            0x8a  (138)
+.text                        0x31e               0x398           0x564  (1380)
+.dinit                       0x6b6                0x2c            0x42  (66)
+.text                        0x6e2                0x5c            0x8a  (138)
 
-                 Total "program" memory used (bytes):          0x891  (2193) 6%
+                 Total "program" memory used (bytes):          0x7dd  (2013) 6%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -113,6 +113,7 @@ External Symbols in Data Memory (by address):
                     0x080c                  _Beam_Data_BitSend
                     0x080d                  _Beam_LedSendByte
                     0x080e                  _Beam_LedReadByte
+                    0x080f                  _Beam_LedState
                     0x0812                  _Beam_Pattern
                     0x0815                  _Beam_DataBuffer
                     0x0876                  _pattern_default
@@ -129,6 +130,7 @@ External Symbols in Data Memory (by name):
                     0x080b                  _Beam_Data_ByteSend
                     0x080e                  _Beam_LedReadByte
                     0x080d                  _Beam_LedSendByte
+                    0x080f                  _Beam_LedState
                     0x0812                  _Beam_Pattern
                     0x0802                  _Beam_Period
                     0x0800                  _Beam_State
@@ -139,8 +141,8 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000252                  __data_init
                   0x000252                  __data_init_standard
+                  0x000252                  __data_init
                   0x0002c8                  __OscillatorFail
                   0x0002d0                  __StackError
                   0x0002da                  __AddressError
@@ -154,69 +156,67 @@ External Symbols in Program Memory (by address):
                   0x0003e0                  _Beam_CheckBit_Fcn
                   0x000426                  _Beam_CheckBit_Update
                   0x000464                  _Beam_DataToLed_Send
-                  0x0004dc                  _Beam_LedToData_Read
-                  0x000512                  _Beam_Param_DefaultInit
-                  0x000520                  _Beam_LedChanel_Init
-                  0x00052e                  _Beam_Tbit455us_Init
-                  0x00054a                  _Beam_TbitParam_Init
-                  0x00056a                  _Beam_PatternParam_Init
-                  0x00058a                  _Beam_Transfer_Start
-                  0x0005a6                  _Beam_Transfer_Stop
-                  0x0005b2                  _Beam_Transfer_Reset
-                  0x0005c2                  _TMR1_Initialize
-                  0x0005dc                  _TMR1_Period16BitSet
-                  0x0005ee                  _TMR1_Period16BitGet
-                  0x0005f6                  _TMR1_Counter16BitSet
-                  0x000608                  _TMR1_Counter16BitGet
-                  0x000616                  _TMR1_Start
-                  0x000626                  _TMR1_Stop
-                  0x000630                  _TMR1_GetElapsedThenClear
-                  0x000648                  _TMR1_SoftwareCounterGet
-                  0x000654                  _TMR1_SoftwareCounterClear
-                  0x000660                  _Beam_DataBuffer_WriteNextData
-                  0x00069a                  _Beam_DataBuffer_WriteData
-                  0x0006ca                  _OSCILLATOR_Initialize
-                  0x0006fc                  _CLOCK_Initialize
-                  0x00075a                  _PIN_MANAGER_Initialize
-                  0x00078e                  _INTERRUPT_Initialize
-                  0x00079e                  _SYSTEM_Initialize
-                  0x0007ac                  _main
+                  0x0004a2                  _Beam_Param_DefaultInit
+                  0x0004b0                  _Beam_LedChanel_Init
+                  0x0004b6                  _Beam_Tbit455us_Init
+                  0x0004d2                  _Beam_TbitParam_Init
+                  0x0004f2                  _Beam_PatternParam_Init
+                  0x000512                  _Beam_Transfer_Start
+                  0x00052e                  _Beam_Transfer_Stop
+                  0x00053a                  _Beam_Transfer_Reset
+                  0x00054a                  _TMR1_Initialize
+                  0x000564                  _TMR1_Period16BitSet
+                  0x000576                  _TMR1_Period16BitGet
+                  0x00057e                  _TMR1_Counter16BitSet
+                  0x000590                  _TMR1_Counter16BitGet
+                  0x00059e                  _TMR1_Start
+                  0x0005ae                  _TMR1_Stop
+                  0x0005b8                  _TMR1_GetElapsedThenClear
+                  0x0005d0                  _TMR1_SoftwareCounterGet
+                  0x0005dc                  _TMR1_SoftwareCounterClear
+                  0x0005e8                  _Beam_DataBuffer_WriteNextData
+                  0x000622                  _Beam_DataBuffer_WriteData
+                  0x000652                  _OSCILLATOR_Initialize
+                  0x000684                  _CLOCK_Initialize
+                  0x0006e2                  _PIN_MANAGER_Initialize
+                  0x000716                  _INTERRUPT_Initialize
+                  0x000726                  _SYSTEM_Initialize
+                  0x000734                  _main
 
 External Symbols in Program Memory (by name):
 
                   0x0003e0                  _Beam_CheckBit_Fcn
                   0x000426                  _Beam_CheckBit_Update
-                  0x00069a                  _Beam_DataBuffer_WriteData
-                  0x000660                  _Beam_DataBuffer_WriteNextData
+                  0x000622                  _Beam_DataBuffer_WriteData
+                  0x0005e8                  _Beam_DataBuffer_WriteNextData
                   0x000464                  _Beam_DataToLed_Send
-                  0x000520                  _Beam_LedChanel_Init
-                  0x0004dc                  _Beam_LedToData_Read
-                  0x000512                  _Beam_Param_DefaultInit
-                  0x00056a                  _Beam_PatternParam_Init
+                  0x0004b0                  _Beam_LedChanel_Init
+                  0x0004a2                  _Beam_Param_DefaultInit
+                  0x0004f2                  _Beam_PatternParam_Init
                   0x0003ae                  _Beam_Pattern_Fcn
                   0x00031e                  _Beam_PeriodCall
                   0x000368                  _Beam_StartBit_Fcn
                   0x000394                  _Beam_SyncBit_Fcn
-                  0x00052e                  _Beam_Tbit455us_Init
-                  0x00054a                  _Beam_TbitParam_Init
-                  0x0005b2                  _Beam_Transfer_Reset
-                  0x00058a                  _Beam_Transfer_Start
-                  0x0005a6                  _Beam_Transfer_Stop
-                  0x0006fc                  _CLOCK_Initialize
-                  0x00078e                  _INTERRUPT_Initialize
-                  0x0006ca                  _OSCILLATOR_Initialize
-                  0x00075a                  _PIN_MANAGER_Initialize
-                  0x00079e                  _SYSTEM_Initialize
-                  0x000608                  _TMR1_Counter16BitGet
-                  0x0005f6                  _TMR1_Counter16BitSet
-                  0x000630                  _TMR1_GetElapsedThenClear
-                  0x0005c2                  _TMR1_Initialize
-                  0x0005ee                  _TMR1_Period16BitGet
-                  0x0005dc                  _TMR1_Period16BitSet
-                  0x000654                  _TMR1_SoftwareCounterClear
-                  0x000648                  _TMR1_SoftwareCounterGet
-                  0x000616                  _TMR1_Start
-                  0x000626                  _TMR1_Stop
+                  0x0004b6                  _Beam_Tbit455us_Init
+                  0x0004d2                  _Beam_TbitParam_Init
+                  0x00053a                  _Beam_Transfer_Reset
+                  0x000512                  _Beam_Transfer_Start
+                  0x00052e                  _Beam_Transfer_Stop
+                  0x000684                  _CLOCK_Initialize
+                  0x000716                  _INTERRUPT_Initialize
+                  0x000652                  _OSCILLATOR_Initialize
+                  0x0006e2                  _PIN_MANAGER_Initialize
+                  0x000726                  _SYSTEM_Initialize
+                  0x000590                  _TMR1_Counter16BitGet
+                  0x00057e                  _TMR1_Counter16BitSet
+                  0x0005b8                  _TMR1_GetElapsedThenClear
+                  0x00054a                  _TMR1_Initialize
+                  0x000576                  _TMR1_Period16BitGet
+                  0x000564                  _TMR1_Period16BitSet
+                  0x0005dc                  _TMR1_SoftwareCounterClear
+                  0x0005d0                  _TMR1_SoftwareCounterGet
+                  0x00059e                  _TMR1_Start
+                  0x0005ae                  _TMR1_Stop
                   0x0002da                  __AddressError
                   0x000318                  __DefaultInterrupt
                   0x0002e2                  __MathError
@@ -227,7 +227,7 @@ External Symbols in Program Memory (by name):
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0007ac                  _main
+                  0x000734                  _main
 
 Memory Configuration
 
@@ -316,22 +316,22 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x2d13
+.debug_info       0x000000       0x2a9b
  *(.debug_info)
- .debug_info      0x000000        0xa80 build/default/production/BeamFile/Beam_Init.o
- .debug_info      0x000a80        0x25d build/default/production/BeamFile/Beam_DataBuffer.o
- .debug_info      0x000cdd        0x336 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_info      0x001013        0x38e build/default/production/mcc_generated_files/traps.o
- .debug_info      0x0013a1        0x34f build/default/production/mcc_generated_files/mcc.o
- .debug_info      0x0016f0        0x34c build/default/production/mcc_generated_files/clock.o
- .debug_info      0x001a3c        0x154 build/default/production/mcc_generated_files/system.o
- .debug_info      0x001b90        0x7a0 build/default/production/mcc_generated_files/tmr1.o
- .debug_info      0x002330        0x28b build/default/production/mcc_generated_files/pin_manager.o
- .debug_info      0x0025bb        0x135 build/default/production/main.o
- .debug_info      0x0026f0        0x623 build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_info      0x000000        0x8e0 build/default/production/BeamFile/Beam_Init.o
+ .debug_info      0x0008e0        0x25d build/default/production/BeamFile/Beam_DataBuffer.o
+ .debug_info      0x000b3d        0x336 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_info      0x000e73        0x38e build/default/production/mcc_generated_files/traps.o
+ .debug_info      0x001201        0x34f build/default/production/mcc_generated_files/mcc.o
+ .debug_info      0x001550        0x34c build/default/production/mcc_generated_files/clock.o
+ .debug_info      0x00189c        0x154 build/default/production/mcc_generated_files/system.o
+ .debug_info      0x0019f0        0x7a0 build/default/production/mcc_generated_files/tmr1.o
+ .debug_info      0x002190        0x28b build/default/production/mcc_generated_files/pin_manager.o
+ .debug_info      0x00241b        0x135 build/default/production/main.o
+ .debug_info      0x002550        0x54b build/default/production/BeamFile/Beam_StateFunction.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x89d
+.debug_abbrev     0x000000        0x8ae
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x15f build/default/production/BeamFile/Beam_Init.o
  .debug_abbrev    0x00015f         0x94 build/default/production/BeamFile/Beam_DataBuffer.o
@@ -343,23 +343,23 @@ __CONFIG1
  .debug_abbrev    0x000565        0x181 build/default/production/mcc_generated_files/tmr1.o
  .debug_abbrev    0x0006e6         0x6a build/default/production/mcc_generated_files/pin_manager.o
  .debug_abbrev    0x000750         0x36 build/default/production/main.o
- .debug_abbrev    0x000786        0x117 build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_abbrev    0x000786        0x128 build/default/production/BeamFile/Beam_StateFunction.o
 
-.debug_line       0x000000        0xa4a
+.debug_line       0x000000        0xa41
  *(.debug_line)
- .debug_line      0x000000        0x134 build/default/production/BeamFile/Beam_Init.o
- .debug_line      0x000134         0xb9 build/default/production/BeamFile/Beam_DataBuffer.o
- .debug_line      0x0001ed        0x108 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_line      0x0002f5        0x12a build/default/production/mcc_generated_files/traps.o
- .debug_line      0x00041f         0xff build/default/production/mcc_generated_files/mcc.o
- .debug_line      0x00051e        0x100 build/default/production/mcc_generated_files/clock.o
- .debug_line      0x00061e         0x4e build/default/production/mcc_generated_files/system.o
- .debug_line      0x00066c        0x13e build/default/production/mcc_generated_files/tmr1.o
- .debug_line      0x0007aa        0x10a build/default/production/mcc_generated_files/pin_manager.o
- .debug_line      0x0008b4         0x37 build/default/production/main.o
- .debug_line      0x0008eb        0x15f build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_line      0x000000        0x132 build/default/production/BeamFile/Beam_Init.o
+ .debug_line      0x000132         0xb9 build/default/production/BeamFile/Beam_DataBuffer.o
+ .debug_line      0x0001eb        0x108 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_line      0x0002f3        0x12a build/default/production/mcc_generated_files/traps.o
+ .debug_line      0x00041d         0xff build/default/production/mcc_generated_files/mcc.o
+ .debug_line      0x00051c        0x100 build/default/production/mcc_generated_files/clock.o
+ .debug_line      0x00061c         0x4e build/default/production/mcc_generated_files/system.o
+ .debug_line      0x00066a        0x13e build/default/production/mcc_generated_files/tmr1.o
+ .debug_line      0x0007a8        0x10a build/default/production/mcc_generated_files/pin_manager.o
+ .debug_line      0x0008b2         0x37 build/default/production/main.o
+ .debug_line      0x0008e9        0x158 build/default/production/BeamFile/Beam_StateFunction.o
 
-.debug_frame      0x000000        0x55c
+.debug_frame      0x000000        0x540
  *(.debug_frame)
  .debug_frame     0x000000         0xf4 build/default/production/BeamFile/Beam_Init.o
  .debug_frame     0x0000f4         0x4c build/default/production/BeamFile/Beam_DataBuffer.o
@@ -371,18 +371,18 @@ __CONFIG1
  .debug_frame     0x000280        0x188 build/default/production/mcc_generated_files/tmr1.o
  .debug_frame     0x000408         0x30 build/default/production/mcc_generated_files/pin_manager.o
  .debug_frame     0x000438         0x30 build/default/production/main.o
- .debug_frame     0x000468         0xf4 build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_frame     0x000468         0xd8 build/default/production/BeamFile/Beam_StateFunction.o
 
-.debug_str        0x000000        0x1f3
+.debug_str        0x000000        0x1d8
  *(.debug_str)
- .debug_str       0x000000         0x7a build/default/production/BeamFile/Beam_Init.o
- .debug_str       0x00007a         0x40 build/default/production/BeamFile/Beam_DataBuffer.o
- .debug_str       0x0000ba          0x9 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_str       0x0000c3          0xc build/default/production/mcc_generated_files/traps.o
- .debug_str       0x0000cf          0xb build/default/production/mcc_generated_files/mcc.o
- .debug_str       0x0000da          0xb build/default/production/mcc_generated_files/clock.o
- .debug_str       0x0000e5         0x1c build/default/production/mcc_generated_files/tmr1.o
- .debug_str       0x000101         0xf2 build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_str       0x000000         0x70 build/default/production/BeamFile/Beam_Init.o
+ .debug_str       0x000070         0x40 build/default/production/BeamFile/Beam_DataBuffer.o
+ .debug_str       0x0000b0          0x9 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_str       0x0000b9          0xc build/default/production/mcc_generated_files/traps.o
+ .debug_str       0x0000c5          0xb build/default/production/mcc_generated_files/mcc.o
+ .debug_str       0x0000d0          0xb build/default/production/mcc_generated_files/clock.o
+ .debug_str       0x0000db         0x1c build/default/production/mcc_generated_files/tmr1.o
+ .debug_str       0x0000f7         0xe1 build/default/production/BeamFile/Beam_StateFunction.o
 
 .debug_loc
  *(.debug_loc)
@@ -391,7 +391,7 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x5aa
+                  0x000000        0x5a4
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0xeb build/default/production/BeamFile/Beam_Init.o
@@ -414,7 +414,7 @@ __CONFIG1
  .debug_pubnames
                   0x00039e         0x1b build/default/production/main.o
  .debug_pubnames
-                  0x0003b9        0x1f1 build/default/production/BeamFile/Beam_StateFunction.o
+                  0x0003b9        0x1eb build/default/production/BeamFile/Beam_StateFunction.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1029,58 +1029,58 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000108        0x32f
+                  0x000108        0x310
  .debug_pubtypes
-                  0x000108         0xc0 build/default/production/BeamFile/Beam_Init.o
+                  0x000108         0xa1 build/default/production/BeamFile/Beam_Init.o
  .debug_pubtypes
-                  0x0001c8         0x1e build/default/production/BeamFile/Beam_DataBuffer.o
+                  0x0001a9         0x1e build/default/production/BeamFile/Beam_DataBuffer.o
  .debug_pubtypes
-                  0x0001e6         0x3c build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x0001c7         0x3c build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_pubtypes
-                  0x000222         0x4e build/default/production/mcc_generated_files/traps.o
+                  0x000203         0x4e build/default/production/mcc_generated_files/traps.o
  .debug_pubtypes
-                  0x000270         0x4c build/default/production/mcc_generated_files/mcc.o
+                  0x000251         0x4c build/default/production/mcc_generated_files/mcc.o
  .debug_pubtypes
-                  0x0002bc         0x4c build/default/production/mcc_generated_files/clock.o
+                  0x00029d         0x4c build/default/production/mcc_generated_files/clock.o
  .debug_pubtypes
-                  0x000308         0x12 build/default/production/mcc_generated_files/system.o
+                  0x0002e9         0x12 build/default/production/mcc_generated_files/system.o
  .debug_pubtypes
-                  0x00031a         0xa4 build/default/production/mcc_generated_files/tmr1.o
+                  0x0002fb         0xa4 build/default/production/mcc_generated_files/tmr1.o
  .debug_pubtypes
-                  0x0003be         0x1f build/default/production/mcc_generated_files/pin_manager.o
+                  0x00039f         0x1f build/default/production/mcc_generated_files/pin_manager.o
  .debug_pubtypes
-                  0x0003dd         0x12 build/default/production/main.o
+                  0x0003be         0x12 build/default/production/main.o
  .debug_pubtypes
-                  0x0003ef         0x48 build/default/production/BeamFile/Beam_StateFunction.o
+                  0x0003d0         0x48 build/default/production/BeamFile/Beam_StateFunction.o
 
 __c30_signature
-                  0x000437         0x4e
+                  0x000418         0x4e
  __c30_signature
-                  0x000437          0x6 build/default/production/BeamFile/Beam_Init.o
+                  0x000418          0x6 build/default/production/BeamFile/Beam_Init.o
  __c30_signature
-                  0x00043d          0x6 build/default/production/BeamFile/Beam_DataBuffer.o
+                  0x00041e          0x6 build/default/production/BeamFile/Beam_DataBuffer.o
  __c30_signature
-                  0x000443          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x000424          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
  __c30_signature
-                  0x000449          0x6 build/default/production/mcc_generated_files/traps.o
+                  0x00042a          0x6 build/default/production/mcc_generated_files/traps.o
  __c30_signature
-                  0x00044f          0x6 build/default/production/mcc_generated_files/mcc.o
+                  0x000430          0x6 build/default/production/mcc_generated_files/mcc.o
  __c30_signature
-                  0x000455          0x6 build/default/production/mcc_generated_files/clock.o
+                  0x000436          0x6 build/default/production/mcc_generated_files/clock.o
  __c30_signature
-                  0x00045b          0x6 build/default/production/mcc_generated_files/system.o
+                  0x00043c          0x6 build/default/production/mcc_generated_files/system.o
  __c30_signature
-                  0x000461          0x6 build/default/production/mcc_generated_files/tmr1.o
+                  0x000442          0x6 build/default/production/mcc_generated_files/tmr1.o
  __c30_signature
-                  0x000467          0x6 build/default/production/mcc_generated_files/pin_manager.o
+                  0x000448          0x6 build/default/production/mcc_generated_files/pin_manager.o
  __c30_signature
-                  0x00046d          0x6 build/default/production/main.o
+                  0x00044e          0x6 build/default/production/main.o
  __c30_signature
-                  0x000473          0x6 build/default/production/BeamFile/Beam_StateFunction.o
+                  0x000454          0x6 build/default/production/BeamFile/Beam_StateFunction.o
  __c30_signature
-                  0x000479          0x6 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x00045a          0x6 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x00047f          0x6 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x000460          0x6 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
 .nbss               0x0800         0x10
  .nbss              0x0800         0x10 build/default/production/BeamFile/Beam_StateFunction.o
@@ -1096,6 +1096,7 @@ __c30_signature
                     0x080c                  _Beam_Data_BitSend
                     0x080d                  _Beam_LedSendByte
                     0x080e                  _Beam_LedReadByte
+                    0x080f                  _Beam_LedState
 
 .ndata              0x0810          0x2
  .ndata             0x0810          0x2 build/default/production/mcc_generated_files/traps.o
@@ -1145,8 +1146,8 @@ __c30_signature
  .ivt._T1Interrupt
                   0x00001a          0x2 build/default/production/mcc_generated_files/tmr1.o
 
-.text             0x00031e        0x410
- .text            0x00031e        0x1f4 build/default/production/BeamFile/Beam_StateFunction.o
+.text             0x00031e        0x398
+ .text            0x00031e        0x184 build/default/production/BeamFile/Beam_StateFunction.o
                   0x00031e                  _Beam_PeriodCall
                   0x000368                  _Beam_StartBit_Fcn
                   0x000394                  _Beam_SyncBit_Fcn
@@ -1154,47 +1155,46 @@ __c30_signature
                   0x0003e0                  _Beam_CheckBit_Fcn
                   0x000426                  _Beam_CheckBit_Update
                   0x000464                  _Beam_DataToLed_Send
-                  0x0004dc                  _Beam_LedToData_Read
- .text            0x000512         0xb0 build/default/production/BeamFile/Beam_Init.o
-                  0x000512                  _Beam_Param_DefaultInit
-                  0x000520                  _Beam_LedChanel_Init
-                  0x00052e                  _Beam_Tbit455us_Init
-                  0x00054a                  _Beam_TbitParam_Init
-                  0x00056a                  _Beam_PatternParam_Init
-                  0x00058a                  _Beam_Transfer_Start
-                  0x0005a6                  _Beam_Transfer_Stop
-                  0x0005b2                  _Beam_Transfer_Reset
- .text            0x0005c2         0x9e build/default/production/mcc_generated_files/tmr1.o
-                  0x0005c2                  _TMR1_Initialize
-                  0x0005dc                  _TMR1_Period16BitSet
-                  0x0005ee                  _TMR1_Period16BitGet
-                  0x0005f6                  _TMR1_Counter16BitSet
-                  0x000608                  _TMR1_Counter16BitGet
-                  0x000610                  _TMR1_CallBack
-                  0x000616                  _TMR1_Start
-                  0x000626                  _TMR1_Stop
-                  0x000630                  _TMR1_GetElapsedThenClear
-                  0x000648                  _TMR1_SoftwareCounterGet
-                  0x000654                  _TMR1_SoftwareCounterClear
- .text            0x000660         0x6a build/default/production/BeamFile/Beam_DataBuffer.o
-                  0x000660                  _Beam_DataBuffer_WriteNextData
-                  0x00069a                  _Beam_DataBuffer_WriteData
- .text            0x0006ca         0x32 build/default/production/mcc_generated_files/mcc.o
-                  0x0006ca                  _OSCILLATOR_Initialize
- .text            0x0006fc         0x32 build/default/production/mcc_generated_files/clock.o
-                  0x0006fc                  _CLOCK_Initialize
+ .text            0x0004a2         0xa8 build/default/production/BeamFile/Beam_Init.o
+                  0x0004a2                  _Beam_Param_DefaultInit
+                  0x0004b0                  _Beam_LedChanel_Init
+                  0x0004b6                  _Beam_Tbit455us_Init
+                  0x0004d2                  _Beam_TbitParam_Init
+                  0x0004f2                  _Beam_PatternParam_Init
+                  0x000512                  _Beam_Transfer_Start
+                  0x00052e                  _Beam_Transfer_Stop
+                  0x00053a                  _Beam_Transfer_Reset
+ .text            0x00054a         0x9e build/default/production/mcc_generated_files/tmr1.o
+                  0x00054a                  _TMR1_Initialize
+                  0x000564                  _TMR1_Period16BitSet
+                  0x000576                  _TMR1_Period16BitGet
+                  0x00057e                  _TMR1_Counter16BitSet
+                  0x000590                  _TMR1_Counter16BitGet
+                  0x000598                  _TMR1_CallBack
+                  0x00059e                  _TMR1_Start
+                  0x0005ae                  _TMR1_Stop
+                  0x0005b8                  _TMR1_GetElapsedThenClear
+                  0x0005d0                  _TMR1_SoftwareCounterGet
+                  0x0005dc                  _TMR1_SoftwareCounterClear
+ .text            0x0005e8         0x6a build/default/production/BeamFile/Beam_DataBuffer.o
+                  0x0005e8                  _Beam_DataBuffer_WriteNextData
+                  0x000622                  _Beam_DataBuffer_WriteData
+ .text            0x000652         0x32 build/default/production/mcc_generated_files/mcc.o
+                  0x000652                  _OSCILLATOR_Initialize
+ .text            0x000684         0x32 build/default/production/mcc_generated_files/clock.o
+                  0x000684                  _CLOCK_Initialize
 
-.dinit            0x00072e         0x2c
- .dinit           0x00072e         0x2c data_init
+.dinit            0x0006b6         0x2c
+ .dinit           0x0006b6         0x2c data_init
 
-.text             0x00075a         0x5c
- .text            0x00075a         0x1e build/default/production/mcc_generated_files/pin_manager.o
-                  0x00075a                  _PIN_MANAGER_Initialize
- .text            0x000778         0x16 build/default/production/mcc_generated_files/traps.o
-                  0x000778                  _TRAPS_halt_on_error
- .text            0x00078e         0x10 build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x00078e                  _INTERRUPT_Initialize
- .text            0x00079e          0xe build/default/production/mcc_generated_files/system.o
-                  0x00079e                  _SYSTEM_Initialize
- .text            0x0007ac          0xa build/default/production/main.o
-                  0x0007ac                  _main
+.text             0x0006e2         0x5c
+ .text            0x0006e2         0x1e build/default/production/mcc_generated_files/pin_manager.o
+                  0x0006e2                  _PIN_MANAGER_Initialize
+ .text            0x000700         0x16 build/default/production/mcc_generated_files/traps.o
+                  0x000700                  _TRAPS_halt_on_error
+ .text            0x000716         0x10 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x000716                  _INTERRUPT_Initialize
+ .text            0x000726          0xe build/default/production/mcc_generated_files/system.o
+                  0x000726                  _SYSTEM_Initialize
+ .text            0x000734          0xa build/default/production/main.o
+                  0x000734                  _main
