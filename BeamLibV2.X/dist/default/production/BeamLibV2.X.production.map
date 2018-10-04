@@ -316,19 +316,19 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x2c63
+.debug_info       0x000000       0x2d13
  *(.debug_info)
- .debug_info      0x000000        0xa70 build/default/production/BeamFile/Beam_Init.o
- .debug_info      0x000a70        0x24d build/default/production/BeamFile/Beam_DataBuffer.o
- .debug_info      0x000cbd        0x326 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_info      0x000fe3        0x37e build/default/production/mcc_generated_files/traps.o
- .debug_info      0x001361        0x33f build/default/production/mcc_generated_files/mcc.o
- .debug_info      0x0016a0        0x33c build/default/production/mcc_generated_files/clock.o
- .debug_info      0x0019dc        0x144 build/default/production/mcc_generated_files/system.o
- .debug_info      0x001b20        0x790 build/default/production/mcc_generated_files/tmr1.o
- .debug_info      0x0022b0        0x27b build/default/production/mcc_generated_files/pin_manager.o
- .debug_info      0x00252b        0x125 build/default/production/main.o
- .debug_info      0x002650        0x613 build/default/production/BeamFile/Beam_StateFunction.o
+ .debug_info      0x000000        0xa80 build/default/production/BeamFile/Beam_Init.o
+ .debug_info      0x000a80        0x25d build/default/production/BeamFile/Beam_DataBuffer.o
+ .debug_info      0x000cdd        0x336 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_info      0x001013        0x38e build/default/production/mcc_generated_files/traps.o
+ .debug_info      0x0013a1        0x34f build/default/production/mcc_generated_files/mcc.o
+ .debug_info      0x0016f0        0x34c build/default/production/mcc_generated_files/clock.o
+ .debug_info      0x001a3c        0x154 build/default/production/mcc_generated_files/system.o
+ .debug_info      0x001b90        0x7a0 build/default/production/mcc_generated_files/tmr1.o
+ .debug_info      0x002330        0x28b build/default/production/mcc_generated_files/pin_manager.o
+ .debug_info      0x0025bb        0x135 build/default/production/main.o
+ .debug_info      0x0026f0        0x623 build/default/production/BeamFile/Beam_StateFunction.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x89d
